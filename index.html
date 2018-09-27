@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="en">
+    
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Future Nature Design - Web/UI Design, Branding, Illustrations">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+        <meta property="og:image" content="FN_wordpress/wp-content/themes/FutureNatureTheme/img/logo_fb_image_.png" />
+        <title>
+        MAKOVATION v2.0        </title>
+
+                <!-- Page styles -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Vollkorn:400i&amp;subset=cyrillic" rel="stylesheet">
+        <link rel="stylesheet" href="FN_wordpress/wp-content/themes/FutureNatureTheme/css/main.css">
+                <link rel="stylesheet" href="FN_wordpress/wp-content/themes/FutureNatureTheme/css/home.css">
+                <link rel="icon" href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/favicon.png">
+        <link rel="image_src" href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/logo.png">
+        <link rel="stylesheet" type="text/css" href="../cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+        <script src="../cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+        <script>
+            var loadGA = function () {
+                var gtagElement = document.createElement('script');
+
+                gtagElement.async = true;
+                gtagElement.src = 'https://www.googletagmanager.com/gtag/js?id=UA-72769242-1';
+
+                var scriptElements = document.getElementsByTagName('script');
+                var lastScriptElement = scriptElements[scriptElements.length - 1];
+
+                lastScriptElement.parentNode.insertBefore(gtagElement, lastScriptElement.nextSibling);
+
+                window.dataLayer = window.dataLayer || [];
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-72769242-1', { 'anonymize_ip': true });
+            };
+
+            window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                    "palette": {
+                        "popup": {
+                            "background": "#463177",
+                            "text": "#ffffff"
+                        },
+                        "button": {
+                            "background": "#14b1aa", 
+                            "text": "#ffffff"
+                        }
+                    },
+                    "revokable": false,
+                    "animateRevokable": false,
+                    "revokeBtn": '<span></span>',
+                    "theme": "classic",
+                    "position": "bottom-right",
+                    "type": "opt-in",
+                    "content": {
+                        "message": "This website uses cookies to ensure you get the best experience while browsing.",
+                        "dismiss": "Got it!",
+                        "allow": "Allow Cookies",
+                        "link": "LEARN MORE",
+                        "href": "/cookie-policy/"
+                    },
+                    'onInitialise': function (status) {
+                        if (status === 'allow') {
+                            loadGA();
+                        } else if (status === 'dismiss') {
+                            // disable cookies
+                        }
+                    },
+
+                    'onStatusChange': function(status, chosenBefore) {
+                        if (status === 'allow') {
+                            loadGA();
+                        } else if (status === 'dismiss') {
+                            // disable cookies
+                        }
+                    }
+                })});
+        </script>
+        <script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/pace.js"></script>
+        <script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/vivus.min.js"></script>        <style>.clip-path-efx::after { content: 'Hold & Drag...' }</style>
+    </head>
+    <body>
+    <div id="loading">
+        <div class="loading-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346 346"><path fill="none" stroke="#463177" stroke-miterlimit="10" stroke-width="10" stroke-dasharray="2048" stroke-dashoffset="-2048" d="M255.4 26.6C336 72 364.8 174 319.7 254.8c-45.1 80.8-146.9 109.9-227.8 65.3-.4-.2-.8-.5-1.3-.7-16.5-9.5-27.6-27.3-27.6-47.7 0-30.4 24.6-55 55-55 9.6 0 18.7 2.5 26.5 6.8l57 31.4c7.9 4.3 16.9 6.8 26.5 6.8 30.4 0 55-24.6 55-55s-24.6-55-55-55c-9 0-17.6 2.2-25.1 6L143 188.4c-7.5 3.9-16 6-25.1 6-30.4 0-55-24.6-55-55s24.6-55 55-55c9.6 0 18.7 2.5 26.5 6.8l57 31.4c7.9 4.3 16.9 6.8 26.5 6.8 30.4 0 55-24.6 55-55 .1-20.5-11-38.3-27.5-47.8-.4-.2-.8-.5-1.3-.7C173.2-18.7 71.4 10.4 26.3 91.2-18.8 172 10 274 90.6 319.4"/></svg>
+        </div>
+    </div>
+    <script>
+        Pace.options = {
+            ajax: false
+        };
+        var $loadingIndicatorPath = document.querySelector('#loading path');
+        var pageLoaded = false;
+
+        var platformOS = window.navigator.platform,
+            macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+            iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+            isNotAppleDevice = 1;
+
+        if ((macosPlatforms.indexOf(platformOS) !== -1) || (iosPlatforms.indexOf(platformOS) !== -1)) {
+            isNotAppleDevice = -1;
+        }
+
+        Pace.on('update', function(progress){
+            var deltaStroke = isNotAppleDevice*(-1 + progress/100)*2048;
+            $loadingIndicatorPath.setAttribute('stroke-dashoffset', deltaStroke);
+            if (progress == 100) {
+                pageLoaded = true;
+            }
+        });
+    </script>
+    <div class="page-content-wrapper">
+        <div class="gridLines">
+            <div class="gridWrapper">
+                <div class="inner">
+                    <div class="vLine">&nbsp;</div>
+                    <div class="vLine">&nbsp;</div>
+                    <div class="vLine">&nbsp;</div>
+                    <div class="vLine">&nbsp;</div>
+                    <div class="vLine">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="navWrapper white">
+                <a href="index.html" id="logo" class="logo" title="Home - Future Nature Design">
+                    <img  style="height:110px;width: 110px;" id = "ecell-makovation-logo" src="./assets/makovation.png"/>
+                   
+          
+                     
+                </a>
+                <nav>
+                    <ul>
+<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a href="services/index.html">Themes</a></li>
+                        <li><a href="javascript:void(0);" class="contact-trigger" title="">Contacts</a></li>
+                    </ul>
+                    <button id="menu-hamburger" class="nav-hamburger" title="Navigation">
+                        <svg class="icon icon-hamburger">
+                            <use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#hamburger" />
+                        </svg>
+
+                        <svg class="icon icon-close">
+                            <use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-close" />
+                        </svg>
+                    </button>
+                    <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="nav-gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%"   stop-color="#ee2849"/>
+                                <stop offset="100%" stop-color="#ee2849"/>
+                            </linearGradient>
+                            <linearGradient id="nav-gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%"   stop-color="#fff"/>
+                                <stop offset="100%" stop-color="#fff"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#nav-gradient1)" class="shape-overlays__path"></path>
+                        <path fill="url(#nav-gradient2)" class="shape-overlays__path"></path>
+                        <path fill="#000" class="shape-overlays__path"></path>
+                    </svg>
+                    <div id="global-nav">
+                        <div class="contacts">
+                            <div class="global-nav-cell">
+                                <h4>Contacts</h4>
+                                <a href="www.ecell.org.in">www.ecell.org.in</a>
+                                <a href="#">pcr@ecell.org.in</a>
+                            </div>
+                        </div>
+                        <div class="nav-links">
+                            <ul>
+                                <li id="menu-item-155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-130 current_page_item menu-item-155"><a href="index.html">Home</a></li>
+<li id="menu-item-153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-153"><a href="services/index.html">Themes</a></li>
+<li id="menu-item-152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a href="www.ecell.org.in">About Ecell</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+	<main>
+		<section id="intro" class="screen-height">
+			<div id="liquid-shape" class="rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1004.6 757.4">
+					<path fill="#ee2849"><animate
+								attributeName="d"
+								dur="15000ms"
+								repeatCount="indefinite"
+								calcMode="spline"
+								keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+								values="M1391 109.7c0 284.2-107.7 405.3-386.4 405.3-91.5 0-146.7 201.6-239 198-103.2-4.1-42.8-259.1-123.2-259.1S551 569 467.6 569 385.8 268.7 219 211 44.6 80.8 44.6 37c0-284.2 562.9-441.8 841.7-441.8S1391-174.5 1391 109.7z;
+
+                    M1391 109.7c0 284.2-67.7 355.3-346.4 355.3-91.5 0-166.7 201.6-259 198-103.2-4.1-62.8-209.1-143.2-209.1S521 629 437.6 629 345.8 268.7 179 211 4.6 80.8 4.6 37c0-284.2 602.9-441.8 881.7-441.8S1391-174.5 1391 109.7z;
+
+                    M1391 109.7c0 284.2-107.7 405.3-386.4 405.3-91.5 0-146.7 201.6-239 198-103.2-4.1-42.8-259.1-123.2-259.1S551 569 467.6 569 385.8 268.7 219 211 44.6 80.8 44.6 37c0-284.2 562.9-441.8 841.7-441.8S1391-174.5 1391 109.7z"/></path>
+					<path fill="#ee2849"><animate
+								attributeName="d"
+								dur="15000ms"
+								repeatCount="indefinite"
+								calcMode="spline"
+								keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+								values="M1345.9 78.1c0 242.7-99.4 358.9-352.3 358.9-83 0-132.2 202.8-215.9 199.7-93.6-3.5-43.9-278.6-116.8-278.6s-100.9 144-176.5 144-57.7-266.5-208.9-315.7-173-118.8-173-156.3c0-242.7 532.8-391.5 785.6-391.5s457.8 196.8 457.8 439.5z;
+
+                    M1345.9 78.1c0 242.7-47 278.9-299.9 278.9-83 0-164.6 232.8-248.3 229.7-93.6-3.5-53.9-228.6-126.8-228.6s-140.9 204-216.5 204-67.7-326.5-218.9-375.7-173-118.8-173-156.3c0-242.7 572.8-391.5 825.6-391.5s457.8 196.8 457.8 439.5z;
+
+                    M1345.9 78.1c0 242.7-99.4 358.9-352.3 358.9-83 0-132.2 202.8-215.9 199.7-93.6-3.5-43.9-278.6-116.8-278.6s-100.9 144-176.5 144-57.7-266.5-208.9-315.7-173-118.8-173-156.3c0-242.7 532.8-391.5 785.6-391.5s457.8 196.8 457.8 439.5z"/></path>
+					<path fill="#fff"><animate
+								attributeName="d"
+								dur="15000ms"
+								repeatCount="indefinite"
+								calcMode="spline"
+								keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+								values="M1287.3 50c0 187.2-72.4 275-293.6 275-72.6 0-130.2 158.4-203.4 156-81.8-2.7-36.7-244-100.5-244s-89.9 140.1-156.1 140.1S483.2 159.9 351 121.9 199.7 41.9 199.7 13c0-187.2 466-302 687.1-302s400.5 151.8 400.5 339z;
+
+                    M1287.3 50c0 187.2-32.4 225-253.6 225-72.6 0-148.5 208.4-221.7 206-81.8-2.7-58.4-214-122.2-214S559.9 464.1 493.7 464.1 443.2 159.9 311 121.9 159.7 41.9 159.7 13c0-187.2 506-302 727.1-302s400.5 151.8 400.5 339z;
+
+                    M1287.3 50c0 187.2-72.4 275-293.6 275-72.6 0-130.2 158.4-203.4 156-81.8-2.7-36.7-244-100.5-244s-89.9 140.1-156.1 140.1S483.2 159.9 351 121.9 199.7 41.9 199.7 13c0-187.2 466-302 687.1-302s400.5 151.8 400.5 339z"/></path>
+					<linearGradient id="a" gradientUnits="userSpaceOnUse" x1="685.2047" y1="338.6351" x2="807.5057" y2="1110.8137" gradientTransform="matrix(1 0 0 -1 0 758)"><stop offset="0" stop-color="#12afa7"/><stop offset=".473" stop-color="#463277"/></linearGradient>
+					<path fill="#000"><animate
+								attributeName="d"
+								dur="15000ms"
+								repeatCount="indefinite"
+								calcMode="spline"
+								keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+								values="M981.8 281.4c-72.6 0-110 158-183.3 155.6-81.8-2.7-36.7-244-100.5-244s-89.9 140.1-156 140.1-50.5-217.2-182.8-255.2S208-2.1 208-31c0-187.2 466-302 687.1-302s400.4 151.8 400.4 339-113.6 275.7-334.8 275.7;
+
+                    M1021.8 231.4c-72.6 0-126.5 176-199.8 173.6-81.8-2.7-60.2-212-124-212S578.1 393.1 512 393.1 451.5 115.9 319.2 77.9 208-2.1 208-31c0-187.2 466-302 687.1-302s400.4 151.8 400.4 339-73.6 225.7-294.8 225.7;
+
+                    M981.8 281.4c-72.6 0-110 158-183.3 155.6-81.8-2.7-36.7-244-100.5-244s-89.9 140.1-156 140.1-50.5-217.2-182.8-255.2S208-2.1 208-31c0-187.2 466-302 687.1-302s400.4 151.8 400.4 339-113.6 275.7-334.8 275.7"/></path></svg>
+			</div>
+			<div class="section-wrapper">
+				<h1>MAKOVATION v2.0<br /><span class="accented">6<sub>th</sub>-7<sup>th</sup> October 2018</span></h1>
+				<p><b>Makovation</b> is a moderated hackathon which will run over a course of two days where students can
+                   bring out their innovative ideas to the floor which can hear and support them in the future. It is meant
+                   to spread awareness about entrepreneurship in the campus.</p>
+								<a href="#" class="cta-btn secondary" title="LEARN MORE">Register</a>
+			</div>
+			<svg id="bubble-top" version="1.1" class="bubble-animation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 viewBox="0 0 1920 772" style="enable-background:new 0 0 1920 772;" xml:space="preserve">
+    <style type="text/css">
+		.stFLOW0{fill:#FFFFFF;}
+		.stFLOW1{opacity:0.5;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+		.stFLOW2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	</style>
+				<g id="LayerFLOW_2">
+				</g>
+				<g id="LayerFLOW_3">
+					<g>
+						<path class="stFLOW0" d="M1682.2,653.3c-138.6,0-228.7-38.1-316.1-75.1c-85.9-36.3-167.1-70.7-289.6-65.4c-55.4,2.4-161.9,25-274.7,49
+            c-150,31.9-320,68-438.1,72.7c-139.5,5.6-237.7-8.4-295.6-21.2c-63.6-14-93.9-29.5-95.1-30.1l13.8-26.6l-6.9,13.3l6.9-13.3
+            c0.3,0.1,29.1,14.7,89.6,27.9c55.9,12.1,150.8,25.5,286.1,20.1c115.5-4.6,284.2-40.4,433-72.1c119-25.3,221.7-47.1,279.7-49.6
+            c58.1-2.5,112.9,3.4,167.4,18c48.5,13,92.6,31.7,135.2,49.7c91.2,38.6,185.6,78.5,337,72c88-3.8,159.3-18,212.1-42.1l12.5,27.3
+            c-56.4,25.8-131.5,40.9-223.4,44.8C1704.5,653.1,1693.2,653.3,1682.2,653.3z"/>
+					</g>
+					<path class="stFLOW1" d="M1920,600.8V772H0.2c-0.1-0.1-0.1-0.1-0.2-0.2C0,772,0,579,0,579.3c43.5,16.2,159.4,49.3,363.1,41.2
+        c208.1-8.3,583.5-116.1,712.7-121.7c260.8-11.2,340.3,152.5,639.6,139.7C1806.7,634.6,1872.5,620.1,1920,600.8z"/>
+					<g>
+						<circle class="stFLOW2" cx="1600" cy="626.5" r="7.3">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1600; 1612"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="626.5; 587"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="7.3; 51"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1612" cy="587" r="51">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1612; 1701"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="587; 509"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="51; 30"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1701" cy="509" r="30">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1701; 1786"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="509; 395"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="30; 16"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1786" cy="395" r="16">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1786; 1766"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="395; 295"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="16; 2.5"
+							/>
+						</circle>
+					</g>
+					<g>
+						<circle class="stFLOW2" cx="1368.4" cy="557.6" r="7.4">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1368.4; 1409"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="557.6; 468"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="7.4; 30"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1409" cy="468" r="30">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1409; 1459"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="468; 400"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="30; 12"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1459" cy="400" r="12">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1459; 1400"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="400; 311"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="12; 0"
+							/>
+						</circle>
+					</g>
+					<g>
+
+						<circle class="stFLOW2" cx="1223.5" cy="505.3" r="7.7">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1223.5; 1232"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="505.3; 452"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="7.7; 62"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1232" cy="452" r="62">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1232; 1246"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="452; 327"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="62; 22"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1246" cy="327" r="22">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1246; 1201"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="327; 224"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="22; 12"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1201" cy="224" r="12">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="1201; 1201"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="224; 144"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="12; 0"
+							/>
+						</circle>
+					</g>
+					<g>
+						<circle class="stFLOW2" cx="1031" cy="501" r="3.3">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1031; 1031"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="501; 445"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="3.3; 17"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1031" cy="445" r="17">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1031; 1071"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="445; 360"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="17; 11"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="1071" cy="360" r="11">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="1071; 1045"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="360; 278"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="11; 0"
+							/>
+						</circle>
+					</g>
+					<g>
+						<circle class="stFLOW2" cx="780" cy="550" r="5.3">
+							<animate
+									attributeName="cx"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="780; 775"
+							/>
+							<animate
+									attributeName="cy"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="550; 510"
+							/>
+							<animate
+									attributeName="r"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="5.3; 40"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="775" cy="510" r="40">
+							<animate
+									attributeName="cx"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="775; 810"
+							/>
+							<animate
+									attributeName="cy"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="510; 392"
+							/>
+							<animate
+									attributeName="r"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="40; 15"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="810" cy="392" r="15">
+							<animate
+									attributeName="cx"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="810; 820"
+							/>
+							<animate
+									attributeName="cy"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="392; 292"
+							/>
+							<animate
+									attributeName="r"
+									dur="3000ms"
+									repeatCount="indefinite"
+									values="15; 0"
+							/>
+						</circle>
+					</g>
+					<g>
+						<circle class="stFLOW2" cx="530" cy="595" r="5">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="530; 508"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="595; 521"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="5; 27.8"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="508" cy="521" r="27.8">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="508; 497"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="521; 413"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="27.8; 11"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="497" cy="413" r="11">
+							<animate
+									attributeName="cx"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="497; 537"
+							/>
+							<animate
+									attributeName="cy"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="413; 323"
+							/>
+							<animate
+									attributeName="r"
+									dur="5000ms"
+									repeatCount="indefinite"
+									values="11; 0"
+							/>
+						</circle>
+					</g>
+					<g>
+						<circle class="stFLOW2" cx="197" cy="617" r="3.8">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="197; 197"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="617; 567"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="3.8; 53"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="197" cy="567" r="53">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="197; 271"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="567; 467"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="53; 24"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="271" cy="467" r="24">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="271; 223"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="467; 390"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="24; 12"
+							/>
+						</circle>
+						<circle class="stFLOW2" cx="223" cy="390" r="12">
+							<animate
+									attributeName="cx"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="223; 263"
+							/>
+							<animate
+									attributeName="cy"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="390; 300"
+							/>
+							<animate
+									attributeName="r"
+									dur="7500ms"
+									repeatCount="indefinite"
+									values="12; 0"
+							/>
+						</circle>
+					</g>
+				</g>
+    </svg>
+		</section>
+		<section id="values" class="screen-height">
+			<h1>Segments</h1>
+			<div>
+				<svg version="1.1" id="bubble-bgr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 viewBox="0 0 1920 2111" preserveAspectRatio="none">
+					<defs>
+						<mask id="bubble-mask">
+							<rect fill="#FFFFFF" y="0" width="1920" height="2111"/>
+							<path fill="#000" d="M1044.5,697.7c-311.6,67-787.8,98.3-1044.5,165V0c182.5,154.7,1127.7,211.4,1382.5,245.7
+                                C1754.1,295.7,1664.6,564.3,1044.5,697.7z"/>
+							<path fill="#000" d="M1920,483.8v1005.1c-25.1-26.1-54-47-87.5-60.2c-199.7-78.7-703.4-102.5-1067-174c-607.9-119.5-503.8-292.2,42-396
+                                C1108,801.5,1651,621.3,1920,483.8z"/>
+							<path fill="#000" d="M1232.1,1904.7c-315.8,54.3-974.2,10-1232.1,73.4v-816.5c312.3,162.6,956.3,291,1303.5,364.1
+                                C1705.8,1610.4,1666.4,1829.9,1232.1,1904.7z"/>
+							<path fill="#000" d="M1920,2030.2v81H0v-9.4c108.1-32.4,316.5-86.1,508.7-86.1c322.9,0,607.5,88.5,944.8,85
+                                C1663.9,2098.5,1817.7,2064.5,1920,2030.2z"/>
+						</mask>
+					</defs>
+					<rect opacity="0.5" fill="#FFFFFF" mask="url(#bubble-mask)" y="0" width="1920" height="2111"/>
+				</svg>
+			</div>
+
+
+			<div class="value-bubble">
+				<div class="inner">
+					<div class="wrapper">
+						<h2>Ideation Phase</h2>
+						<div class="icon-container rellax" data-rellax-speed="1" data-rellax-percentage="0.5">
+							<svg class="icon" id="icon-inspiration" viewBox="0 0 124.2 85">
+								<style>
+									.stVALUE_1_0,.stVALUE_1_1,.stVALUE_1_2{fill:none;stroke:#f7971d;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10}.stVALUE_1_1,.stVALUE_1_2{stroke:#0caea7}.stVALUE_1_2{stroke-linecap:round}
+								</style>
+								<path d="M44.3 46.2c5.4-9.9 17.7-13.4 27.4-8 .1 0 .1.1.2.1 2 1.2 3.3 3.3 3.3 5.8 0 3.7-3 6.7-6.6 6.7-1.2 0-2.2-.3-3.2-.8l-6.9-3.8c-.9-.5-2-.8-3.2-.8-3.7 0-6.6 3-6.6 6.7s3 6.7 6.6 6.7c1.1 0 2.1-.3 3-.7l7.2-3.7c.9-.5 1.9-.7 3-.7 3.7 0 6.6 3 6.6 6.7s-3 6.7-6.6 6.7c-1.2 0-2.2-.3-3.2-.8l-6.9-3.8c-.9-.5-2-.8-3.2-.8-3.7 0-6.6 3-6.6 6.7 0 2.5 1.3 4.7 3.3 5.8-9.6-5.7-13-18.1-7.6-28z"
+									  class="stVALUE_1_0"/>
+								<path d="M79.6 66.2c-5.4 9.9-17.7 13.4-27.4 8-.1 0-.1-.1-.2-.1-2-1.2-3.3-3.3-3.3-5.8 0-3.7 3-6.7 6.6-6.7 1.2 0 2.2.3 3.2.8l6.9 3.8c.9.5 2 .8 3.2.8 3.7 0 6.6-3 6.6-6.7s-3-6.7-6.6-6.7c-1.1 0-2.1.3-3 .7L58.4 58c-.9.5-1.9.7-3 .7-3.7 0-6.6-3-6.6-6.7s3-6.7 6.6-6.7c1.2 0 2.2.3 3.2.8l6.9 3.8c.9.5 2 .8 3.2.8 3.7 0 6.6-3 6.6-6.7 0-2.5-1.3-4.7-3.3-5.8 9.6 5.7 13.1 18.1 7.6 28z"
+									  class="stVALUE_1_0"/>
+								<path d="M.8 56.2l3-4.6C16.7 31.8 38.4 19.9 62 19.9s45.3 11.8 58.1 31.7l3 4.6" class="stVALUE_1_1"/>
+								<path d="M113 56.2C102.1 72.9 83.3 84 62 84c-21.4 0-40.2-11.1-51-27.8 10.8-16.7 29.6-27.8 51-27.8 21.3.1 40.2 11.1 51 27.8z"
+									  class="stVALUE_1_1"/>
+								<g>
+									<path d="M6.9 46.7L1.8 41M30.7 26.4l-4.9-10.9M62.4 18.9V1M94.2 26.6l4.9-10.9M118.1 46.7l5.1-5.7" class="stVALUE_1_2"/>
+								</g>
+							</svg>
+							<svg version="1.1" class="bubble-animation" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 250 400">
+								<style>
+									.stBubble2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+								</style>
+								<g>
+									<circle class="stBubble2" cx="150" cy="300" r="3.8">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 50"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="250; 150"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="3.8; 50"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="50" cy="150" r="45">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 115"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 50"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 20"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="115" cy="35" r="20">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="115; 25"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 0"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="20; 0"
+										/>
+									</circle>
+
+							</svg>
+						</div>
+						<p>This is targeted for 1<sub>st</sub> year students specifically because they are freshers and it is
+                        highly unlikely that they’d have a working model/Prototype ready this soon. (Cash prize will be lower
+                        than the working model segment)</p>
+												<a class="more" href="portfolio/index.html" title="See projects"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-arrow" /></svg></a>
+					</div>
+				</div>
+			</div>
+			<div class="value-bubble">
+				<div class="inner">
+					<div class="wrapper">
+						<h2>Working Phase</h2>
+						<div class="icon-container rellax" data-rellax-speed="1" data-rellax-percentage="0.5">
+							<svg class="icon" id="icon-expertise" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="0 0 126.7 106.8" style="enable-background:new 0 0 126.7 106.8;" xml:space="preserve">
+    <style type="text/css">
+		.stexpert0{fill:none;stroke:#0CAEA7;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+		.stexpert1{fill:none;stroke:#F7971D;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	</style>
+								<g>
+									<path class="stexpert0" d="M64.1,73.7c0,0,4.2-3.8,8.9-9.1c2-2.2,2.5-5.1,1.3-7.6c-1.1-2.5-3.4-4-5.9-4
+            c-2.5,0-4.1,1.1-5.1,2.3c-1-1.2-2.6-2.3-5.1-2.3c-2.5,0-4.8,1.6-5.9,4c-1.1,2.6-0.7,5.4,1.3,7.6c4.7,5.3,8.9,9.1,8.9,9.1l0.7,0.6
+            c1.9,2.4,5.1,4.5,10.1,4.5c5,0,9.6-3.1,11.8-8c2.3-5.1,1.3-10.7-2.6-15.1c-9.4-10.5-17.7-18-17.8-18.1l-1.4-1.4
+            c-3.5-4.4-9.5-8.5-18.8-8.5c-9.3,0-17.9,5.9-22,15c-4.2,9.5-2.4,20,4.9,28.2c17.5,19.7,33,33.6,33.2,33.7c0.8,0.7,1.7,1,2.7,1
+            c1,0,1.9-0.3,2.7-1c0.2-0.1,15.6-14.1,33.2-33.7c7.3-8.2,9.2-18.8,4.9-28.2c-4.1-9.1-12.7-15-22-15c-9.3,0-15.3,4.1-18.8,8.5
+            l-1.4,1.4c-0.1,0.1-8.4,7.5-17.8,18.1c-3.9,4.4-4.9,10-2.6,15.1c2.2,4.9,6.8,8,11.8,8c5,0,8.2-2.2,10.1-4.5L64.1,73.7z"/>
+									<g>
+										<line class="stexpert1" x1="63.3" y1="15.2" x2="63.3" y2="1"/>
+										<line class="stexpert1" x1="19.7" y1="26.5" x2="14" y2="20.9"/>
+										<line class="stexpert1" x1="107" y1="26.5" x2="112.6" y2="20.9"/>
+										<line class="stexpert1" x1="12.3" y1="60.2" x2="1" y2="60.2"/>
+										<line class="stexpert1" x1="114.3" y1="60.2" x2="125.7" y2="60.2"/>
+									</g>
+								</g>
+    </svg>
+							<svg version="1.1" class="bubble-animation" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 250 400">
+								<style>
+									.stBubble2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+								</style>
+								<g>
+									<circle class="stBubble2" cx="50" cy="300" r="3.8">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 150"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="250; 150"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="3.8; 50"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="150" cy="150" r="45">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 35"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 50"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 20"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="35" cy="35" r="20">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="35; 100"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 0"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="20; 0"
+										/>
+									</circle>
+
+							</svg>
+						</div>
+						<p>This is a targeted segment for students in 2nd year and above. Here the students, either in groups or individually would be presenting a working model at the end of the event on which
+they will be marked and judged upon.</p>
+												<a class="more" href="services/index.html" title="See my services"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-arrow" /></svg></a>
+					</div>
+				</div>
+			</div>
+			<div class="value-bubble">
+				<div class="inner">
+					<div class="wrapper">
+						<h2>Note:</h2>
+						<div class="icon-container rellax" data-rellax-speed="1" data-rellax-percentage="0.5">
+							<svg version="1.1" id="icon-responsibility" class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 136.8 97.3" style="enable-background:new 0 0 136.8 97.3;" xml:space="preserve">
+                                        <style type="text/css">
+											.stresponsible0{fill:none;stroke:#0CAEA7;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+											.stresponsible1{fill:none;stroke:#F7971D;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+										</style>
+								<g>
+									<path class="stresponsible0" d="M84,57.5c0,15.1-5.9,28.7-15.6,38.8c-9.7-10.1-15.6-23.8-15.6-38.8s5.9-28.7,15.6-38.8
+                                                C78.1,28.8,84,42.5,84,57.5z"/>
+									<path class="stresponsible1" d="M100,35.4c-2.2,5-6.1,8.8-10.8,10.8c-1.8-4.8-1.8-10.2,0.4-15.2c2.2-5,6.1-8.8,10.8-10.8
+                                                C102.1,24.9,102.1,30.4,100,35.4z"/>
+									<path class="stresponsible1" d="M36.8,35.4c2.2,5,6.1,8.8,10.8,10.8c1.8-4.8,1.8-10.2-0.4-15.2c-2.2-5-6.1-8.8-10.8-10.8
+                                                C34.6,24.9,34.6,30.4,36.8,35.4z"/>
+									<path class="stresponsible0" d="M106.9,79.9C96.2,90.5,82.4,96,68.4,96.3c0.3-13.9,5.8-27.8,16.4-38.5s24.5-16.1,38.5-16.4
+                                                C123,55.4,117.5,69.2,106.9,79.9z"/>
+									<path class="stresponsible0" d="M29.9,79.9C40.6,90.5,54.5,96,68.4,96.3C68.1,82.4,62.6,68.5,52,57.9S27.5,41.7,13.5,41.4
+                                                C13.8,55.4,19.3,69.2,29.9,79.9z"/>
+								</g>
+								<path class="stresponsible1" d="M68.4,4.7c0-3.7,0-3.7,0-3.7S68.4,1,68.4,4.7s0,6.7,0,6.7S68.4,8.3,68.4,4.7z"/>
+								<path class="stresponsible1" d="M3.6,31.5C1,28.9,1,28.9,1,28.9S1,28.9,3.6,31.5s4.7,4.7,4.7,4.7S6.2,34.1,3.6,31.5z"/>
+								<path class="stresponsible1" d="M133.2,31.5c2.6-2.6,2.6-2.6,2.6-2.6S135.8,28.9,133.2,31.5s-4.7,4.7-4.7,4.7S130.6,34.1,133.2,31.5z"/>
+                                        </svg>
+							<svg version="1.1" class="bubble-animation" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 250 400">
+								<style>
+									.stBubble2{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+								</style>
+								<g>
+									<circle class="stBubble2" cx="150" cy="300" r="3.8">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 50"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="250; 150"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="3.8; 50"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="50" cy="150" r="45">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 115"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="150; 50"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 20"
+										/>
+									</circle>
+									<circle class="stBubble2" cx="115" cy="35" r="20">
+										<animate
+												attributeName="cx"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="115; 25"
+										/>
+										<animate
+												attributeName="cy"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="50; 0"
+										/>
+										<animate
+												attributeName="r"
+												dur="7500ms"
+												repeatCount="indefinite"
+												values="20; 0"
+										/>
+									</circle>
+
+							</svg>
+						</div>
+						<p>The segments are not binding to the year wise students and anyone can participate in any of the
+                         two segments. It is just a suggestion from the organizing body which has been made in view of
+                         tapping the freshers who can become the driving entrepreneurial force and motivation for the college
+                         in the coming years</p>
+						<a class="more" href="about-me/index.html" title="More about FutureNature"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-arrow" /></svg></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="projects" class="screen-height">
+			<div class="section-wrapper">
+				<div class="inner">
+					<h1>Featured Themes</h1>
+					<br />
+					<a class="more" href="portfolio/index.html" title="See all projects"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-arrow" /></svg></a>
+					<div class="slider projects_slider">
+						<div class="slider-nav">
+							<span class="label-quantity">1 / 6</span>
+							<button class="js_prev" title="See previous"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-btn-arrow" /></svg></button>
+							<button class="js_next" title="See next"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-btn-arrow" /></svg></button>
+						</div>
+						<div class="frame js_frame">
+							<ul class="slides js_slides">
+								<li class="js_slide">
+													<a href="portfolio/maxxus/index.html" class="project-img" title="Maxxus">
+							<picture>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/08/maxxus_preview-370x265.png" media="all and (max-width: 500px)"/>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/08/maxxus_preview-615x440.png" media="all and (max-width: 1024px)"/>
+                                        <img src="FN_wordpress/wp-content/uploads/2018/08/maxxus_preview-1000x715.png" alt="" />
+                                    </picture>
+						</a>
+												<div class="content-backdrop"></div>
+												<div class="project-content">
+													<div class="align-content">
+														<span class="date">July 2018</span>
+														<h3><a href="featured_themes/environment.html" title="VIEW PROJECT">Environmental Issues</a></h3>
+														
+														<a href="featured_themes/environment.html" title="VIEW PROJECT" class="cta-btn secondary">VIEW PROJECT</a>
+													</div>
+												</div>
+											</li><li class="js_slide">
+													<a href="portfolio/global-brands-store/index.html" class="project-img" title="Global Brands Store">
+							<picture>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/09/gb_preview-370x265.png" media="all and (max-width: 500px)"/>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/09/gb_preview-615x440.png" media="all and (max-width: 1024px)"/>
+                                        <img src="FN_wordpress/wp-content/uploads/2018/09/gb_preview-1000x715.png" alt="" />
+                                    </picture>
+						</a>
+												<div class="content-backdrop"></div>
+												<div class="project-content">
+													<div class="align-content">
+														<span class="date">August 2018</span>
+														<h3><a href="featured_themes/technicalbusiness.html" title="VIEW PROJECT">Technical Businesses</a></h3>
+														
+														<a href="featured_themes/technicalbusiness.html" title="VIEW PROJECT" class="cta-btn secondary">VIEW PROJECT</a>
+													</div>
+												</div>
+											</li><li class="js_slide">
+													<a href="portfolio/siko/index.html" class="project-img" title="SIKO">
+							<picture>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/09/Siko_preview-370x265.png" media="all and (max-width: 500px)"/>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/09/Siko_preview-615x440.png" media="all and (max-width: 1024px)"/>
+                                        <img src="FN_wordpress/wp-content/uploads/2018/09/Siko_preview-1000x715.png" alt="" />
+                                    </picture>
+						</a>
+												<div class="content-backdrop"></div>
+												<div class="project-content">
+													<div class="align-content">
+														<span class="date">July 2018</span>
+														<h3><a href="featured_themes/non-technicalbusiness.html" title="VIEW PROJECT">Non-technical businesses</a></h3>
+														
+														<a href="featured_themes/non-technicalbusiness.html" title="VIEW PROJECT" class="cta-btn secondary">VIEW PROJECT</a>
+													</div>
+												</div>
+											</li><li class="js_slide">
+													<a href="portfolio/ozone-bg/index.html" class="project-img" title="Ozone.bg">
+							<picture>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/06/ozone_preview-370x265.png" media="all and (max-width: 500px)"/>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/06/ozone_preview-615x440.png" media="all and (max-width: 1024px)"/>
+                                        <img src="FN_wordpress/wp-content/uploads/2018/06/ozone_preview-1000x715.png" alt="" />
+                                    </picture>
+						</a>
+												<div class="content-backdrop"></div>
+												<div class="project-content">
+													<div class="align-content">
+														<span class="date">June 2018</span>
+														<h3><a href="featured_themes/social-ventures.html" title="VIEW PROJECT">Social Ventures</a></h3>
+														
+														<a href="featured_themes/social-ventures.html" title="VIEW PROJECT" class="cta-btn secondary">VIEW PROJECT</a>
+													</div>
+												</div>
+											</li><li class="js_slide">
+													<a href="portfolio/stenik-group/index.html" class="project-img" title="Stenik Group">
+							<picture>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/06/stenik_preview-370x265.png" media="all and (max-width: 500px)"/>
+                                        <source srcset="https://futurenature.net/FN_wordpress/wp-content/uploads/2018/06/stenik_preview-615x440.png" media="all and (max-width: 1024px)"/>
+                                        <img src="FN_wordpress/wp-content/uploads/2018/06/stenik_preview-1000x715.png" alt="" />
+                                    </picture>
+						</a>
+												<div class="content-backdrop"></div>
+												<div class="project-content">
+													<div class="align-content">
+														<span class="date">March 2018</span>
+														<h3><a href="featured_themes/unconventional-innovation.html" title="VIEW PROJECT">Unconventional Innovations</a></h3>
+														
+														<a href="featured_themes/unconventional-innovation.html" title="VIEW PROJECT" class="cta-btn secondary">VIEW PROJECT</a>
+													</div>
+												</div>
+											</li>
+						</div>
+					</div>
+				</div>
+			</div>
+			<svg id="liquid-shape-side" class="rellax" data-rellax-percentage="0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1216">
+				<path fill="#ee2849">
+					<animate
+							attributeName="d"
+							dur="20000ms"
+							repeatCount="indefinite"
+							calcMode="spline"
+							keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+							values="M699.6 786.3c-10.9 92.3-295.5 122.3-417.5 179.8s-290 218.4-505.3 176.3c-118-23-291.9-451.9-246.2-679.4S33.7 13.8 268.1 134.3c185.2 95.3-58.4 272.4 11.1 388.3 82.6 138 440.6 93.1 420.4 263.7z;
+                                M569.6,876c-10.9,92.3-215.5,192.3-337.5,249.8s-240,128.4-455.3,86.3c-118-23-291.9-491.9-246.2-719.4
+    S223.7-93.5,458.1,27c185.2,95.3-158.4,449.4-88.9,565.3C451.8,730.3,589.8,705.4,569.6,876z;
+                                M699.6 786.3c-10.9 92.3-295.5 122.3-417.5 179.8s-290 218.4-505.3 176.3c-118-23-291.9-451.9-246.2-679.4S33.7 13.8 268.1 134.3c185.2 95.3-58.4 272.4 11.1 388.3 82.6 138 440.6 93.1 420.4 263.7z" />
+				</path>
+				<path fill="#ee2849">
+					<animate
+							attributeName="d"
+							dur="20000ms"
+							repeatCount="indefinite"
+							calcMode="spline"
+							keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+							values="M617.8,777.3c-10.2,85.9-261.1,105.2-374.7,158.8s-284,217.7-484.4,178.6C-351,1093.2-513,688.2-470.4,476.4
+    S-2.1,58.2,216.1,170.5c172.4,88.7-54.3,250.3,10.3,358.2C303.3,657.1,636.6,618.5,617.8,777.3z;
+                                M487.8,867c-10.2,85.9-181.1,175.2-294.7,228.8s-234,127.7-434.4,88.6C-351,1162.9-513,717.9-470.4,506.1
+    S187.9-49.1,406.1,63.2c172.4,88.7-154.3,427.3-89.7,535.2C393.3,726.8,506.6,708.2,487.8,867z;
+                                M617.8,777.3c-10.2,85.9-261.1,105.2-374.7,158.8s-284,217.7-484.4,178.6C-351,1093.2-513,688.2-470.4,476.4
+    S-2.1,58.2,216.1,170.5c172.4,88.7-54.3,250.3,10.3,358.2C303.3,657.1,636.6,618.5,617.8,777.3z"/></path>
+
+				<path fill="#fff">
+					<animate
+							attributeName="d"
+							dur="20000ms"
+							repeatCount="indefinite"
+							calcMode="spline"
+							keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+							values="M477 768.9c-8.1 68.5-191.3 91.5-281.9 134.1-90.5 42.7-243.1 185.8-402.8 154.6-87.5-17.1-216.6-359.8-182.7-528.6s373.2-333.3 547.2-243.8c137.4 70.7-43.3 190 8.2 276 61.4 102.3 327 81.1 312 207.7z;
+                                    M401.1,858.6c-8.1,68.5-165.4,161.5-256,204.1c-90.5,42.7-193.1,95.8-352.8,64.6
+    c-87.5-17.1-216.6-399.8-182.7-568.6s588.6-545.5,762.6-456c137.4,70.7-154.6,425.2-103.1,511.2C330.5,716.1,416.1,732,401.1,858.6z;
+                                    M477 768.9c-8.1 68.5-191.3 91.5-281.9 134.1-90.5 42.7-243.1 185.8-402.8 154.6-87.5-17.1-216.6-359.8-182.7-528.6s373.2-333.3 547.2-243.8c137.4 70.7-43.3 190 8.2 276 61.4 102.3 327 81.1 312 207.7z"/></path>
+				<linearGradient id="aliquid2" x1="-375.3699" x2="376.3182" y1="566.2269" y2="839.819"
+								gradientTransform="matrix(0.9801 0.1984 -0.2099 1.0371 120.2331 -23.8282)"
+								gradientUnits="userSpaceOnUse">
+					<stop offset=".527" stop-color="#463277"/>
+					<stop offset="1" stop-color="#12afa7"/>
+				</linearGradient>
+				<path fill="#000">
+					<animate
+							attributeName="d"
+							dur="20000ms"
+							repeatCount="indefinite"
+							calcMode="spline"
+							keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+							values="M401.1 764.6c-7.4 62.5-146.9 63.8-229.5 102.8-82.6 38.9-249.3 207.3-395 178.8-79.8-15.6-197.6-346.4-166.6-500.4s340.5-304 499.1-222.4c125.4 64.5-39.5 169.1 7.5 247.6 55.9 93.4 298.1 78.1 284.5 193.6z;
+                                    M347.5,851.7c-7.4,62.5-121.9,126.8-204.5,165.8c-82.6,38.9-199.3,117.3-345,88.8
+    c-79.8-15.6-197.6-386.4-166.6-540.4S196.7,45.4,355.3,127c125.4,64.5-163,415.2-116,493.7C295.2,714.1,361.1,736.2,347.5,851.7z;
+                                    M401.1 764.6c-7.4 62.5-146.9 63.8-229.5 102.8-82.6 38.9-249.3 207.3-395 178.8-79.8-15.6-197.6-346.4-166.6-500.4s340.5-304 499.1-222.4c125.4 64.5-39.5 169.1 7.5 247.6 55.9 93.4 298.1 78.1 284.5 193.6z"/></path>
+			</svg>
+		</section>
+		<section id="process">
+			<h1>Тhe workflow<br /><span class="accented">what are the secret ingredients?</span></h1>
+			<div class="dash-path-wrapper">
+				<div class="dash-path-inner">
+					<svg id="dash-path" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1057.7"><path fill="none" fill-rule="evenodd" stroke="#0eb1a9" stroke-miterlimit="10" stroke-width="2" stroke-dasharray="0, 0, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10" d="M960.5,1057.7c0.5-98.9-0.2-395.4-0.5-397.3c181.7,0,329-147.3,329-329s-147.3-329-329-329s-329,147.3-329,329
+    c-3,1.2-629.9,1-629.9,1" clip-rule="evenodd">
+							<animate
+									attributeName="stroke-dasharray"
+									dur="4000ms"
+									begin="indefinite"
+									values="0, 2575, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10; 0, 0, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10, 16, 10"
+							/>
+						</path></svg>
+
+				</div>
+				<svg id="blob-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1300"><path fill="#e3d9ec" fill-rule="evenodd" clip-rule="evenodd" opacity=".5"><animate
+								attributeName="d"
+								dur="20000ms"
+								repeatCount="indefinite"
+								calcMode="spline"
+								keySplines="0.3 0 0.7 1; 0.3 0 0.7 1"
+								values="M2775.7,808.9c-70.9,153.4-458.1,301.8-774.2,255.7c-316.1-46.1-522.5-217.6-616.2-359
+    c-18.9-28.5-148.5-248.6-106.9-303.5c75.7-100,263,11.6,377.8-61.8c108.5-69.3,143.3-254.6,277-294.9
+    c126.4-38.2,166.5,102.1,272.3,153.1c92.8,44.7,307.8,5.5,348.1,157.5C2630.7,646.7,2887.7,566.3,2775.7,808.9z;
+
+    M2775.7,808.9c-70.9,153.4-499.7,113.2-772.4,195.1c-646,194-336-35.6-330-199c4.2-114.5-262-239-226.7-317.2
+    c40.1-88.9,189.7-67.6,304.5-141c108.5-69.3-76.7-250.6,57-291c126.4-38.2,291.5,91.8,397.3,142.8c92.8,44.7,307.8,5.5,348.1,157.5
+    C2630.7,646.7,2887.7,566.3,2775.7,808.9z;
+
+                            M2775.7,808.9c-70.9,153.4-458.1,301.8-774.2,255.7c-316.1-46.1-522.5-217.6-616.2-359
+    c-18.9-28.5-148.5-248.6-106.9-303.5c75.7-100,263,11.6,377.8-61.8c108.5-69.3,143.3-254.6,277-294.9
+    c126.4-38.2,166.5,102.1,272.3,153.1c92.8,44.7,307.8,5.5,348.1,157.5C2630.7,646.7,2887.7,566.3,2775.7,808.9z" /></path></svg>
+			</div>
+
+			<div class="process-bubble-wrapper">
+				<span class="vertical-dashed-line"></span>
+				<div class="process-bubble">
+					<svg xmlns="http://www.w3.org/2000/svg" id="icon-business-needs" viewBox="0 5 800 600">
+						<style>.stProcess1{fill:none;stroke:#14b1aa;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10}</style>
+						<path fill="none" stroke="#f7971d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="8"
+							  d="M304.5 250c0-39.3 31.8-71.1 71.1-71.1s71.1 31.8 71.1 71.1c0 76.5-101.3 63.4-101.3 121.5v102"/>
+						<path d="M284 250.3c-13.6-71.2 50.8-123.6 108.5-119.1 66.5 5.2 105.1 57 105.1 114.9 0 112.7-152.3 100.2-152.3 185.9v41.5"
+							  class="stProcess1"/>
+						<path d="M263.6 250.6C236.3 147.5 333.3 74.8 409.4 83.5c93.6 10.7 139.2 82.2 139.2 158.7 0 140.2-179.8 137.9-201.1 231.4"
+							  class="stProcess1"/>
+						<path fill="#f7971d"
+							  d="M345.4 495.5c8.1 0 14.8 6.6 14.8 14.8 0 8.1-6.6 14.8-14.8 14.8-8.1 0-14.8-6.6-14.8-14.8 0-8.2 6.6-14.8 14.8-14.8m0-7c-12 0-21.8 9.7-21.8 21.8 0 12 9.7 21.8 21.8 21.8 12 0 21.8-9.7 21.8-21.8-.1-12.1-9.8-21.8-21.8-21.8z"/>
+					</svg>
+					<h4>1. What is a "hackathon" and how much it will cost ? <br/>
+business needs.</h4>
+					<div class="text-wrapper"><p>A hackathon is an event where teams of 2-5 people collaborate on a problem statement or an idea of their own within the specified time limit. Prizes are awarded to the most creative, polished and theme-specific projects or "hacks". The winners will be chosen by a panel of judges comprised of top industry professionals.<br>And it is <b>COMPLETELY FREE</b></p></div>
+				</div>
+				<span class="vertical-dashed-line"></span>
+				<div class="process-bubble">
+					<svg id="icon-concepts" xmlns="http://www.w3.org/2000/svg" viewBox="10 8 800 600">
+						<style>
+							.st2Process0,.st2Process1,.st2Process2{fill:#fff;stroke:#14b1aa;stroke-width:7;stroke-linecap:round;stroke-miterlimit:10}.st2Process1,.st2Process2{stroke:#f7971d}.st2Process2{fill:none}
+						</style>
+						<path d="M267.3 160.3h265.4v265.4H267.3z" class="st2Process0"
+							  transform="matrix(0.5 0.866 -0.866 0.5 453.744 -199.9109)"/>
+						<path d="M267.3 160.3h265.4v265.4H267.3z" class="st2Process0"
+							  transform="matrix(0.866 0.5 -0.5 0.866 200.0888 -160.7455)"/>
+						<path d="M267.3 160.3h265.4v265.4H267.3z" class="st2Process0"/>
+						<path d="M295.3 192.5h94.4v66.2h-94.4zM409.5 192.5h94.4v66.2h-94.4z" class="st2Process1"/>
+						<path d="M295.3 357.5h105.1M295.3 336.1h208.6M295.3 313h208.6M295.3 289h208.6" class="st2Process2"/>
+					</svg>
+					<h4>2. What if I don't have any experience?<br /></h4>
+					<div class="text-wrapper"><p>No worries! Hackathons are really a place for learning. We will have series of workshops to bootstrap you for hacking so you'll be ready in no time. Mentors will be walking around around to help you with any problems you'll face. By the time you walk out, you'll have a new skill under your belt !</p></div>
+				</div>
+				<span class="vertical-dashed-line"></span>
+				<div class="process-bubble">
+					<svg xmlns="http://www.w3.org/2000/svg" id="icon-design-magic" viewBox="20 5 800 600">
+						<style>
+							.st3Process0,.st3Process1{fill:none;stroke:#14b1aa;stroke-width:7;stroke-linecap:round;stroke-miterlimit:10}.st3Process1{stroke:#f7971d}
+						</style>
+						<path d="M274.5 365.4s30.3-7.2 76.1 19.3c45.8 26.4 54.7 56.3 54.7 56.3s9-29.8 54.7-56.3 76.1-19.3 76.1-19.3-21.4-22.7-21.4-75.5c0-52.9 21.4-75.5 21.4-75.5s-30.3 7.2-76.1-19.3-54.7-56.3-54.7-56.3-9 29.8-54.7 56.3-76.1 19.3-76.1 19.3 21.4 22.7 21.4 75.5-21.4 75.5-21.4 75.5z"
+							  class="st3Process0"/>
+						<path d="M340.6 327.2s15-3.5 37.6 9.5c22.7 13.1 27.1 27.8 27.1 27.8s4.4-14.8 27.1-27.8c22.7-13.1 37.6-9.5 37.6-9.5s-10.6-11.2-10.6-37.4 10.6-37.4 10.6-37.4-15 3.5-37.6-9.5c-22.7-13.1-27.1-27.8-27.1-27.8s-4.4 14.8-27.1 27.8-37.6 9.5-37.6 9.5 10.6 11.2 10.6 37.4-10.6 37.4-10.6 37.4zM415.5 78.6c0 5.9-10.6 28.4-10.6 28.4s-10.6-22.5-10.6-28.4c0-5.9 4.8-10.6 10.6-10.6s10.6 4.7 10.6 10.6z"
+							  class="st3Process1"/>
+						<path d="M327.4 170.8v-32.1M311.4 154.7h32.1" class="st3Process0"/>
+						<path d="M395.2 501.1c0-5.9 10.6-28.4 10.6-28.4s10.6 22.5 10.6 28.4-4.8 10.6-10.6 10.6-10.6-4.7-10.6-10.6z"
+							  class="st3Process1"/>
+						<path d="M483.3 409v32M499.3 425h-32" class="st3Process0"/>
+						<path d="M227.5 175.5c5.1 2.9 19.3 23.4 19.3 23.4s-24.8-2-29.9-5c-5.1-2.9-6.8-9.5-3.9-14.5 2.9-5.1 9.4-6.9 14.5-3.9z"
+							  class="st3Process1"/>
+						<path d="M249.4 305.8v-32M233.4 289.8h32" class="st3Process0"/>
+						<path d="M583.2 404.2c-5.1-2.9-19.3-23.4-19.3-23.4s24.8 2 29.9 5c5.1 2.9 6.8 9.5 3.9 14.5-2.8 5.1-9.4 6.9-14.5 3.9z"
+							  class="st3Process1"/>
+						<path d="M561.3 273.9V306M577.4 290h-32.1" class="st3Process0"/>
+						<path d="M217.4 386.7c5.1-2.9 29.9-5 29.9-5s-14.2 20.5-19.3 23.4c-5.1 2.9-11.6 1.2-14.5-3.9-3-5-1.2-11.5 3.9-14.5z"
+							  class="st3Process1"/>
+						<path d="M327.3 408.9v32M343.3 424.9h-32" class="st3Process0"/>
+						<path d="M593.4 193c-5.1 2.9-29.9 5-29.9 5s14.2-20.5 19.3-23.4c5.1-2.9 11.6-1.2 14.5 3.9 2.9 5 1.2 11.6-3.9 14.5z"
+							  class="st3Process1"/>
+						<path d="M483.4 170.8v-32M467.4 154.8h32" class="st3Process0"/>
+					</svg>
+					<h4>3. What happens if I don't have a team and is it limited to only coders ?</h4>
+					<div class="text-wrapper"><p>Dont worry! A lot of hackers just like you are in the same position. On the first day of the event, we will make sure to pair everyone up with a team of hackers so no one gets left out! There will also be an opportunity to connect with people and form teams before the event (after you have choosen to attend). And it is <b>not at all limited to coders</b> Makovation is all about promoting the idea of problem solving. Solutions are what we are looking for to the problems plaguing the society</p></div>
+				</div>
+				<span class="vertical-dashed-line"></span>
+				<div class="process-bubble">
+					<span class="text-icon">Fn(<span class="orange">x</span>) = ...</span>
+					<h4>4. How big <br />
+can a team be ?</h4>
+					<div class="text-wrapper"><p>Teams are usually 2-5 people in size. Teams bigger than 5 people are usually split up into smaller ones as we have found large teams aren't the best solution for a 24th event. Don't worry if you can't get find your team beforehand, volunteers at event will help you find your teammates and provide you with many opportunities to find others to help !</p></div>
+				</div>
+				<span class="vertical-dashed-line"></span>
+			</div>
+		</section>
+		<section id="testimonials">
+			<div class="section-wrapper">
+				<h1>Client Testimonials</h1>
+				<div class="slider testimonials_slider">
+					<div class="slider-nav">
+						<span class="label-quantity">1 / 6</span>
+						<button class="js_prev" title="prev-next"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-btn-arrow" /></svg></button>
+						<button class="js_next" title="See next"><svg><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon-btn-arrow" /></svg></button>
+					</div>
+					<div class="frame js_frame">
+						<ul class="slides js_slides">
+							<li class="js_slide"><p>Georgi has made several logos for my company. He has listened to my needs and came up with good examples how to make my logo stand out.</p>
+<span class="author">
+Harmen van der Spoel
+      <br />
+      <span class="author-title">
+      Entrepreneur
+      </span>
+</span></li><li class="js_slide"><p>I am extremely pleased with the work of Georgi Tsvetkov. His work is highly creative, and he had professional and correct attitude. I have no remarks and I would again use his web design services. I strongly recommend him!</p>
+<span class="author">
+Dobrin Dimitrov
+      <br />
+      <span class="author-title">
+Founder of Remonti.bg
+      </span>
+</span></li><li class="js_slide"><p>Georgi designed and built our website from the ground up. He had a clear vision about the final product from the very beginning and it was a great pleasure to see him transforming it into reality.</p>
+<span class="author">
+Vladislav Donchev
+      <br />
+      <span class="author-title">
+CEO of Hardcodes LTD.
+      </span>
+</span></li><li class="js_slide"><p>The work Georgi provided was high quality and worth the costs. He delivered in short period of time and responded quickly. The logo looks great and I'm super happy!</p>
+<span class="author">
+Johan Norén
+      <br />
+      <span class="author-title">
+Owner of JNS Solutions
+      </span>
+</span></li>						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<div id="vertical-nav">
+		<ul>
+			<li class="selected"><a class="hash-link" href="#intro" title="Navigate to Top">01</a></li>
+			<li><a class="hash-link" href="#values" title="Navigate to values section">02</a></li>
+			<li><a class="hash-link" href="#projects" title="Navigate to projects section">03</a></li>
+			<li><a class="hash-link" href="#process" title="Navigate to process section">04</a></li>
+			<li><a class="hash-link" href="#testimonials" title="Navigate to testimonials section">05</a></li>
+		</ul>
+	</div>
+<footer>
+    <div class="footer-wrapper">
+        <div class="logo-group">
+            <a href="index.html" title="Home - Future Nature Design"><svg class="icon"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#logo_bw"/></svg></a>
+            <p>Makovation v2.0<br /></p>
+        </div>
+        <div class="link-group">
+            <h4>Quick Links</h4>
+            <ul>
+                <li id="menu-item-535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-130 current_page_item menu-item-535"><a href="index.html">Home</a></li>
+<!--<li id="menu-item-534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-534"><a href="portfolio/index.html">Portfolio</a></li>-->
+<li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532"><a href="https://ecell.org.in">About us</a></li>
+<!--<li id="menu-item-533" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-533"><a href="services/index.html">Services</a></li>-->
+<li id="menu-item-531" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-531"><a href="cookie-policy/index.html">Cookie Policy</a></li>
+<!--                <li><a href="#" title="">Блог</a></li>-->
+            </ul>
+        </div>
+        <div class="contacts-group">
+            <h4>Contacts</h4>
+            <a class="mail" title="Mail Me" href="mailto:georgitsvetkov8@gmail.com"><svg class="icon"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon_mail"/></svg>pcr@ecell.org.in</a>
+            <a class="phone" title="Call Me" href="tel:00359886355331"><svg class="icon"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon_phone"/></svg>7683979698</a>
+            <h4>Follow us:</h4>
+            <a class="social-btn" target="_blank" href="https://www.facebook.com/FutureNatureDesign/" title="Future Nature Design on Facebook"><svg class="icon social"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon_fb"/></svg></a>
+            <a class="social-btn" target="_blank" href="https://www.behance.net/futurenature" title="Future Nature Design on Behance"><svg class="icon social"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon_behance" /></svg></a>
+            <a class="social-btn" target="_blank" href="https://www.pinterest.com/FutureNatureG/" title="Future Nature Design on Pinterest"><svg class="icon social"><use xlink:href="FN_wordpress/wp-content/themes/FutureNatureTheme/img/sprite_vectors.svg#icon_pinterest" /></svg></a>
+        </div>
+        <p class="copyright">Kiit Ecell  © 2018, All rights reserved.</p>
+    </div>
+</footer>
+</div>
+<script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/lory.min.js"></script>
+<script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/scrollreveal.min.js"></script>
+<script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/rellax.min.js"></script><script type="text/javascript" src="FN_wordpress/wp-content/themes/FutureNatureTheme/js/script.js"></script>
+</body>
+
+<!-- Mirrored from futurenature.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Sep 2018 20:08:25 GMT -->
+</html>
